@@ -1,0 +1,7 @@
+{
+  "retrieved_successfully": "Permission retrieved successfully",
+  "collection_retrieved_successfully": "Permissions retrieved successfully",
+  "created_successfully": "Permission created successfully",
+  "updated_successfully": "Permission updated successfully",
+  "deleted_successfully": "Permission deleted successfully"
+}

@@ -1,0 +1,10 @@
+model UserRole {
+  roleId Int @map("role_id")
+  userId Int @map("user_id")
+
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, userId])
+  @@map("user_role")
+}

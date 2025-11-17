@@ -1,0 +1,7 @@
+{
+  "retrieved_successfully": "Usuario recuperado correctamente",
+  "collection_retrieved_successfully": "Usuarios recuperados correctamente",
+  "created_successfully": "Usuario creado correctamente",
+  "updated_successfully": "Usuario actualizado correctamente",
+  "deleted_successfully": "Usuario eliminado correctamente"
+}

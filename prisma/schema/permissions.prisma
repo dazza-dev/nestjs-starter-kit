@@ -1,0 +1,14 @@
+model Permission {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String
+  moduleId    Int?     @map("module_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  module          Module?          @relation(fields: [moduleId], references: [id])
+  rolePermissions RolePermission[]
+
+  @@map("permissions")
+}
