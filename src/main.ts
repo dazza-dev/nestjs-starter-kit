@@ -6,6 +6,7 @@ import type { CorsConfig } from '@/config/CorsConfig';
 import type { AppConfig } from '@/config/AppConfig';
 import { RequestContext } from '@/common/request.context';
 import type { Request, Response, NextFunction } from 'express';
+import { Logger } from 'nestjs-pino';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
@@ -14,6 +15,11 @@ async function bootstrap(): Promise<void> {
       next();
     });
   });
+
+  // Logger
+  app.useLogger(app.get(Logger));
+
+  // Global pipes
   app.useGlobalPipes(
     new I18nValidationPipe({
       whitelist: true,

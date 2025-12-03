@@ -8,6 +8,9 @@ import { existsSync } from 'fs';
 // Translations
 import { I18nModule, AcceptLanguageResolver, QueryResolver } from 'nestjs-i18n';
 
+// Logger
+import { LoggerModule } from 'nestjs-pino';
+
 // Modules
 import { UsersModule } from '@/modules/users/users.module';
 import { AclModule } from '@/modules/acl/acl.module';
@@ -18,6 +21,17 @@ import { AclModule } from '@/modules/acl/acl.module';
     ConfigModule.forRoot({
       isGlobal: true,
       load: [appConfig, corsConfig],
+    }),
+    LoggerModule.forRoot({
+      pinoHttp: {
+        transport: {
+          target: 'pino-pretty',
+          options: {
+            colorize: true,
+          },
+        },
+        messageKey: 'message',
+      },
     }),
     I18nModule.forRoot({
       fallbackLanguage: 'en',
