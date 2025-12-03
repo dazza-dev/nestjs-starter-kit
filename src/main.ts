@@ -24,7 +24,6 @@ async function bootstrap(): Promise<void> {
     new I18nValidationPipe({
       whitelist: true,
       transform: true,
-      forbidUnknownValues: false,
     }),
   );
 

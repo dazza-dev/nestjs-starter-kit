@@ -19,7 +19,6 @@ import { RecordDeleteResponse } from '@/common/types/common.type';
 import { Query } from '@nestjs/common';
 import { I18nService } from 'nestjs-i18n';
 import { PaginationResult } from '@/common/prisma/prisma.paginate';
-import type { Request } from 'express';
 
 @Controller('users')
 export class UsersController {

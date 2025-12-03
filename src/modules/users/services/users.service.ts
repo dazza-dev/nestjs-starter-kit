@@ -1,5 +1,5 @@
 import {
-  BadRequestException,
+  ConflictException,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
@@ -81,7 +81,7 @@ export class UsersService {
 
     // Check if the email is already in use
     if (existing) {
-      throw new BadRequestException('Email already in use.');
+      throw new ConflictException('Email already in use.');
     }
 
     // Hash the password
@@ -111,7 +111,7 @@ export class UsersService {
     if (data.email && data.email !== user.email) {
       const exists = await this.usersRepository.findByEmail(data.email);
       if (exists) {
-        throw new BadRequestException('Email already in use.');
+        throw new ConflictException('Email already in use.');
       }
     }
 
