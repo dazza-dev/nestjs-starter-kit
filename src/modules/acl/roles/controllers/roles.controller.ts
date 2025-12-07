@@ -56,7 +56,7 @@ export class RolesController {
    */
   @Get(':id')
   async show(@Param('id', ParseIntPipe) id: number): Promise<RoleResponse> {
-    const role = await this.rolesService.getById(id);
+    const role = await this.rolesService.find(id);
 
     return {
       message: await this.i18n.t('roles.retrieved_successfully'),

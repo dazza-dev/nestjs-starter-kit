@@ -87,7 +87,7 @@ export class RolesRepository {
    * @param id - The ID of the role to find.
    * @returns A promise that resolves to the role with the given ID, or null if no role is found.
    */
-  async findById(id: number): Promise<Role | null> {
+  async find(id: number): Promise<Role | null> {
     return this.prisma.role.findFirst({ where: { id } });
   }
 

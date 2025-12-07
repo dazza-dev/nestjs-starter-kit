@@ -15,7 +15,7 @@ export class PermissionsRepository {
    * @param id - Permission id.
    * @returns Permission.
    */
-  async findById(id: number): Promise<Permission | null> {
+  async find(id: number): Promise<Permission | null> {
     return this.prisma.permission.findFirst({ where: { id } });
   }
 

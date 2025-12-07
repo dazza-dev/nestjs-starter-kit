@@ -33,8 +33,8 @@ export class PermissionsService {
    * @param id - Permission id.
    * @returns Permission.
    */
-  async getById(id: number): Promise<Permission> {
-    const permission = await this.permissionsRepository.findById(id);
+  async find(id: number): Promise<Permission> {
+    const permission = await this.permissionsRepository.find(id);
 
     // If permission not found, throw not found exception.
     if (!permission) {

@@ -42,8 +42,8 @@ export class UsersService {
    * @param id - The ID of the user to find.
    * @returns A promise that resolves to the user with the specified ID, or null if not found.
    */
-  async getById(id: number): Promise<User> {
-    const user = await this.usersRepository.findById(id);
+  async find(id: number): Promise<User> {
+    const user = await this.usersRepository.find(id);
 
     // Check if the user exists
     if (!user) {
@@ -77,15 +77,10 @@ export class UsersService {
    * @returns A promise that resolves to the created user.
    */
   async create(data: CreateUserDto): Promise<User> {
-    const existing = await this.usersRepository.findByEmail(data.email);
-
-    // Check if the email is already in use
-    if (existing) {
-      throw new ConflictException('Email already in use.');
-    }
+    await this.validateEmailUniqueness(data.email);
 
     // Hash the password
-    const hashed = await bcrypt.hash(data.password, 10);
+    const passwordHashed = await bcrypt.hash(data.password, 10);
 
     // Create the user
     return this.usersRepository.create({
@@ -93,7 +88,7 @@ export class UsersService {
       avatar: data.avatar,
       email: data.email,
       username: data.username,
-      password: hashed,
+      password: passwordHashed,
     });
   }
 
@@ -105,14 +100,11 @@ export class UsersService {
    * @returns A promise that resolves to the updated user.
    */
   async update(id: number, data: UpdateUserDto): Promise<User> {
-    const user = await this.getById(id);
+    const user = await this.find(id);
 
     // Check if the email is being changed and if it's already in use
     if (data.email && data.email !== user.email) {
-      const exists = await this.usersRepository.findByEmail(data.email);
-      if (exists) {
-        throw new ConflictException('Email already in use.');
-      }
+      await this.validateEmailUniqueness(data.email);
     }
 
     // Check if the password is provided
@@ -138,7 +130,22 @@ export class UsersService {
    * @returns A promise that resolves when the user is successfully deleted.
    */
   async delete(id: number): Promise<void> {
-    await this.getById(id);
+    await this.find(id);
     await this.usersRepository.delete(id);
+  }
+
+  /**
+   * Checks if an email is already in use.
+   *
+   * @param email - The email to check.
+   * @returns A promise that resolves when the check is complete.
+   * @throws ConflictException if the email is already in use.
+   */
+  private async validateEmailUniqueness(email: string): Promise<void> {
+    const exists = await this.usersRepository.findByEmail(email);
+
+    if (exists) {
+      throw new ConflictException('Email already in use.');
+    }
   }
 }

@@ -38,8 +38,8 @@ export class RolesService {
    * @returns A promise that resolves to the role with the given ID.
    * @throws NotFoundException if no role is found with the given ID.
    */
-  async getById(id: number): Promise<Role> {
-    const role = await this.rolesRepository.findById(id);
+  async find(id: number): Promise<Role> {
+    const role = await this.rolesRepository.find(id);
     if (!role) {
       throw new NotFoundException('Role not found.');
     }
@@ -69,7 +69,7 @@ export class RolesService {
    * @throws NotFoundException if no role is found with the given ID.
    */
   async update(id: number, data: UpdateRoleDto): Promise<Role> {
-    await this.getById(id);
+    await this.find(id);
     return this.rolesRepository.update(id, {
       name: data.name ?? undefined,
       slug: data.slug ?? undefined,
@@ -85,7 +85,7 @@ export class RolesService {
    * @throws NotFoundException if no role is found with the given ID.
    */
   async delete(id: number): Promise<void> {
-    await this.getById(id);
+    await this.find(id);
     await this.rolesRepository.delete(id);
   }
 }

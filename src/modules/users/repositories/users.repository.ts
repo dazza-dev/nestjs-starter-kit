@@ -88,7 +88,7 @@ export class UsersRepository {
    * @param id - The ID of the user to find.
    * @returns A promise that resolves to the user with the specified ID, or null if not found.
    */
-  async findById(id: number): Promise<User | null> {
+  async find(id: number): Promise<User | null> {
     return this.prisma.user.findFirst({ where: { id, deletedAt: null } });
   }
 
