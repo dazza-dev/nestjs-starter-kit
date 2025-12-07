@@ -56,7 +56,7 @@ export class UsersController {
    */
   @Get(':id')
   async show(@Param('id', ParseIntPipe) id: number): Promise<UserResponse> {
-    const user = await this.usersService.find(id);
+    const user = await this.usersService.findOrFail(id);
 
     return {
       message: await this.i18n.t('users.retrieved_successfully'),

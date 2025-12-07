@@ -42,7 +42,17 @@ export class UsersService {
    * @param id - The ID of the user to find.
    * @returns A promise that resolves to the user with the specified ID, or null if not found.
    */
-  async find(id: number): Promise<User> {
+  async find(id: number): Promise<User | null> {
+    return await this.usersRepository.find(id);
+  }
+
+  /**
+   * Finds a user by their ID or throws a NotFoundException if not found.
+   *
+   * @param id - The ID of the user to find.
+   * @returns A promise that resolves to the user with the specified ID.
+   */
+  async findOrFail(id: number): Promise<User> {
     const user = await this.usersRepository.find(id);
 
     // Check if the user exists
@@ -59,7 +69,7 @@ export class UsersService {
    * @param email - The email of the user to find.
    * @returns A promise that resolves to the user with the specified email, or null if not found.
    */
-  async getByEmail(email: string): Promise<User | null> {
+  async findByEmail(email: string): Promise<User | null> {
     const user = await this.usersRepository.findByEmail(email);
 
     // Check if the user exists
@@ -100,7 +110,7 @@ export class UsersService {
    * @returns A promise that resolves to the updated user.
    */
   async update(id: number, data: UpdateUserDto): Promise<User> {
-    const user = await this.find(id);
+    const user = await this.findOrFail(id);
 
     // Check if the email is being changed and if it's already in use
     if (data.email && data.email !== user.email) {
@@ -130,7 +140,7 @@ export class UsersService {
    * @returns A promise that resolves when the user is successfully deleted.
    */
   async delete(id: number): Promise<void> {
-    await this.find(id);
+    await this.findOrFail(id);
     await this.usersRepository.delete(id);
   }
 
