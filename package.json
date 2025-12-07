@@ -5,6 +5,7 @@
   "author": "Andres Daza",
   "private": true,
   "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
     "build": "nest build && tsc-alias -p tsconfig.json",
     "format": "prettier --write --no-error-on-unmatched-pattern \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -71,7 +72,7 @@
   },
   "prisma": {
     "schema": "./prisma/schema/",
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "tsx prisma/seed.ts"
   },
   "jest": {
     "moduleFileExtensions": [
