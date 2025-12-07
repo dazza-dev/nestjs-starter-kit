@@ -8,7 +8,6 @@ import {
   ParseIntPipe,
   Post,
   Put,
-  BadRequestException,
 } from '@nestjs/common';
 import { UsersService } from '@/modules/users/services/users.service';
 import { CreateUserDto } from '@/modules/users/dto/create-user.dto';
@@ -72,16 +71,12 @@ export class UsersController {
    */
   @Post()
   async store(@Body() data: CreateUserDto): Promise<UserResponse> {
-    try {
-      const user = await this.usersService.create(data);
+    const user = await this.usersService.create(data);
 
-      return {
-        message: await this.i18n.t('users.created_successfully'),
-        user: UserResource.toResource(user),
-      };
-    } catch (err) {
-      throw new BadRequestException(err);
-    }
+    return {
+      message: await this.i18n.t('users.created_successfully'),
+      user: UserResource.toResource(user),
+    };
   }
 
   /**

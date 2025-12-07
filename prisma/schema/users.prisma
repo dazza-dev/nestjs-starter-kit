@@ -2,7 +2,7 @@ model User {
     id        Int       @id @default(autoincrement())
     name      String
     avatar    String?
-    email     String    @unique
+    email     String
     username  String?   @unique
     password  String
     createdAt DateTime  @default(now()) @map("created_at")
@@ -11,5 +11,6 @@ model User {
 
     userRoles UserRole[]
 
+    @@unique([email, deletedAt])
     @@map("users")
 }
