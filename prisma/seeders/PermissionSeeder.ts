@@ -1,6 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/common/prisma/prisma.client';
 
-export default async function PermissionSeeder(prisma: PrismaClient) {
+export default async function PermissionSeeder() {
   const modules = await prisma.module.findMany();
 
   const actions = [

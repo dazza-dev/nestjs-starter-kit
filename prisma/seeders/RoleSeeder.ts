@@ -1,6 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/common/prisma/prisma.client';
 
-export default async function RoleSeeder(prisma: PrismaClient) {
+export default async function RoleSeeder() {
   const roles = [
     {
       name: 'Admin',
