@@ -1,4 +1,4 @@
-import { RequestContext } from '../request.context';
+import { RequestContext } from '@/common/request.context';
 
 export interface PaginationOptions {
   page?: number;
