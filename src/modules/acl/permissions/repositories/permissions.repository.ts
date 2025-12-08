@@ -23,7 +23,7 @@ export class PermissionsRepository {
    * @returns All permissions.
    */
   async getAll(): Promise<Permission[]> {
-    return this.prisma.permission.findMany();
+    return await prisma.permission.findMany();
   }
 
   /**
@@ -32,7 +32,7 @@ export class PermissionsRepository {
    * @returns Module permissions group.
    */
   async findGroupedByModule(): Promise<ModulePermissionsGroup[]> {
-    const modules = await this.prisma.module.findMany({
+    const modules = await prisma.module.findMany({
       select: {
         id: true,
         name: true,
