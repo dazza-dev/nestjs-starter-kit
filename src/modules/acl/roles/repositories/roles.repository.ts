@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@/common/prisma/generated/client';
-import { prisma } from '@/common/prisma/prisma.client';
-import {
-  prismaPaginate,
-  PaginationResult,
-} from '@/common/prisma/prisma.paginate';
+import { Prisma } from '@/prisma/generated/client';
+import { prisma } from '@/prisma/prisma.client';
+import { prismaPaginate, PaginationResult } from '@/prisma/prisma.paginate';
 import type { Role } from '@/modules/acl/roles/types/role.type';
 import { CreateRoleDto } from '@/modules/acl/roles/dto/create-role.dto';
 import { UpdateRoleDto } from '@/modules/acl/roles/dto/update-role.dto';

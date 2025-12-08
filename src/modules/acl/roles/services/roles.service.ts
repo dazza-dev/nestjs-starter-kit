@@ -4,7 +4,7 @@ import { CreateRoleDto } from '@/modules/acl/roles/dto/create-role.dto';
 import { ListRolesQueryDto } from '@/modules/acl/roles/dto/list-roles.dto';
 import { UpdateRoleDto } from '@/modules/acl/roles/dto/update-role.dto';
 import { RolesRepository } from '@/modules/acl/roles/repositories/roles.repository';
-import type { PaginationResult } from '@/common/prisma/prisma.paginate';
+import type { PaginationResult } from '@/prisma/prisma.paginate';
 
 @Injectable()
 export class RolesService {

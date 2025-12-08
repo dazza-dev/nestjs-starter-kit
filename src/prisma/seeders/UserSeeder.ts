@@ -1,4 +1,4 @@
-import { prisma } from '@/common/prisma/prisma.client';
+import { prisma } from '@/prisma/prisma.client';
 import bcrypt from 'bcrypt';
 
 export default async function UserSeeder() {

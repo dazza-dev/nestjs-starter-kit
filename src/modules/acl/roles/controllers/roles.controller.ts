@@ -15,7 +15,7 @@ import { UpdateRoleDto } from '@/modules/acl/roles/dto/update-role.dto';
 import { ListRolesQueryDto } from '@/modules/acl/roles/dto/list-roles.dto';
 import { RoleResource } from '@/modules/acl/roles/resources/role.resource';
 import { Role, RoleResponse } from '@/modules/acl/roles/types/role.type';
-import { PaginationResult } from '@/common/prisma/prisma.paginate';
+import { PaginationResult } from '@/prisma/prisma.paginate';
 import { RecordDeleteResponse } from '@/common/types/common.type';
 import { Query } from '@nestjs/common';
 import { I18nService } from 'nestjs-i18n';

@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@/common/prisma/generated/client';
-import { prisma } from '@/common/prisma/prisma.client';
-import {
-  prismaPaginate,
-  PaginationResult,
-} from '@/common/prisma/prisma.paginate';
+import { Prisma } from '@/prisma/generated/client';
+import { prisma } from '@/prisma/prisma.client';
+import { prismaPaginate, PaginationResult } from '@/prisma/prisma.paginate';
 import type { User } from '@/modules/users/types/user.type';
 import { CreateUserDto } from '@/modules/users/dto/create-user.dto';
 import { UpdateUserDto } from '@/modules/users/dto/update-user.dto';

@@ -4,7 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import type { User } from '@/modules/users/types/user.type';
-import type { PaginationResult } from '@/common/prisma/prisma.paginate';
+import type { PaginationResult } from '@/prisma/prisma.paginate';
 import bcrypt from 'bcrypt';
 import { CreateUserDto } from '@/modules/users/dto/create-user.dto';
 import { ListUsersQueryDto } from '@/modules/users/dto/list-users.dto';

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { prisma } from '@/common/prisma/prisma.client';
+import { prisma } from '@/prisma/prisma.client';
 import type {
   Permission,
   ModulePermissionsGroup,

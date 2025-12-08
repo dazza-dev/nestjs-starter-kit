@@ -1,4 +1,4 @@
-import { prisma } from '@/common/prisma/prisma.client';
+import { prisma } from '@/prisma/prisma.client';
 import UserSeeder from './UserSeeder';
 import RoleSeeder from './RoleSeeder';
 import ModuleSeeder from './ModuleSeeder';
