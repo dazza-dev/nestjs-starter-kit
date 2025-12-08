@@ -55,7 +55,8 @@ pids
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-/generated/prisma
-/prisma/schema/migrations
+/prisma/migrations
 pnpm-workspace.yaml
 pnpm-lock.yaml
+
+/src/common/prisma/generated
