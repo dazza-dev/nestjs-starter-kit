@@ -1,18 +1,13 @@
-import {
-  I18nValidationPipe,
-  I18nValidationExceptionFilter,
-  I18nValidationException,
-  I18nContext,
-} from 'nestjs-i18n';
+import { I18nValidationPipe } from 'nestjs-i18n';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from '@/app.module';
 import { ConfigService } from '@nestjs/config';
 import type { CorsConfig } from '@/config/CorsConfig';
 import type { AppConfig } from '@/config/AppConfig';
 import { RequestContext } from '@/common/request.context';
+import { validationFilter } from '@/common/filters/ValidationFilter';
 import type { Request, Response, NextFunction } from 'express';
 import { Logger } from 'nestjs-pino';
-import { ValidationError, ArgumentsHost } from '@nestjs/common';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
@@ -34,32 +29,7 @@ async function bootstrap(): Promise<void> {
   );
 
   // Global filters
-  app.useGlobalFilters(
-    new I18nValidationExceptionFilter({
-      errorHttpStatusCode: 422,
-      errorFormatter: (errors: ValidationError[]) => {
-        const result: Record<string, string[]> = {};
-        errors.forEach((error) => {
-          result[error.property] = Object.values(error.constraints || {});
-        });
-        return result;
-      },
-      responseBodyFormatter: (
-        host: ArgumentsHost,
-        exc: I18nValidationException,
-        formattedErrors: object,
-      ) => {
-        const i18n = I18nContext.current();
-        return {
-          statusCode: 422,
-          message: i18n
-            ? i18n.t('validation.invalid_data')
-            : 'The given data was invalid',
-          errors: formattedErrors,
-        };
-      },
-    }),
-  );
+  app.useGlobalFilters(validationFilter);
 
   // Set global prefix for all routes
   app.setGlobalPrefix('api/v1');
