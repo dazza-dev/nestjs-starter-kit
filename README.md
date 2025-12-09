@@ -12,9 +12,16 @@ This project is a starter kit for building APIs with `NestJS`. It uses `Prisma` 
 
 ## Environment Variables
 
-- `APP_KEY`: Application-wide key used for cryptographic operations. Use a 32-character secure string.
-- `DATABASE_URL`: Prisma database connection string. Format: `mysql://<user>:<password>@<host>:<port>/<database>`.
-- `JWT_SECRET`: Secret key used to sign and verify JWT tokens.
+- `APP_ENV`: Application environment (e.g., `development`, `production`).
+- `APP_PORT`: Port where the application will run (e.g., `3000`).
+- `APP_KEY`: Secure 32-character string used for cryptographic operations.
+- `APP_NAME`: Name of the application (e.g., `NestJS`).
+- `DATABASE_URL`: Full Prisma connection string. Format: `mysql://<user>:<password>@<host>:<port>/<database>`.
+- `DATABASE_USER`: Database username (e.g., `root`).
+- `DATABASE_PASSWORD`: Database password.
+- `DATABASE_NAME`: Name of the database schema (e.g., `nestjs`).
+- `DATABASE_HOST`: Database host address (e.g., `localhost`).
+- `DATABASE_PORT`: Database port number (e.g., `3306`).
 
 ## Run the Project
 
