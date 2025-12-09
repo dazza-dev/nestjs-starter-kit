@@ -1,8 +1,5 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { ValidationException } from '@/common/exceptions/validation.exception';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import type { User } from '@/modules/users/types/user.type';
 import type { PaginationResult } from '@/prisma/prisma.paginate';
 import bcrypt from 'bcrypt';
@@ -155,7 +152,7 @@ export class UsersService {
     const exists = await this.usersRepository.findByEmail(email);
 
     if (exists) {
-      throw new ConflictException('Email already in use.');
+      throw new ValidationException('email', 'Email already in use.');
     }
   }
 }

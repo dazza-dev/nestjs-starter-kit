@@ -8,6 +8,7 @@ import { RequestContext } from '@/common/request.context';
 import { validationFilter } from '@/common/filters/ValidationFilter';
 import type { Request, Response, NextFunction } from 'express';
 import { Logger } from 'nestjs-pino';
+import { HttpExceptionFilter } from '@/common/filters/http-exception.filter';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
@@ -29,7 +30,7 @@ async function bootstrap(): Promise<void> {
   );
 
   // Global filters
-  app.useGlobalFilters(validationFilter);
+  app.useGlobalFilters(validationFilter, new HttpExceptionFilter());
 
   // Set global prefix for all routes
   app.setGlobalPrefix('api/v1');
