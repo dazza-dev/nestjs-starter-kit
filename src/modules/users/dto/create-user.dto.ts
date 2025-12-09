@@ -13,7 +13,7 @@ export class CreateUserDto {
 
   @IsString()
   @IsOptional()
-  avatar?: string;
+  avatar?: string | null;
 
   @IsEmail()
   @IsNotEmpty()
@@ -21,7 +21,7 @@ export class CreateUserDto {
 
   @IsString()
   @IsOptional()
-  username?: string;
+  username?: string | null;
 
   @IsString()
   @MinLength(8)
