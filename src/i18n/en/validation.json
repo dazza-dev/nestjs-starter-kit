@@ -3,5 +3,9 @@
   "isNotEmpty": "{property} should not be empty",
   "isString": "{property} must be a string",
   "isEmail": "{property} must be an email",
-  "minLength": "{property} must be longer than or equal to {constraints.0} characters"
+  "minLength": "{property} must be longer than or equal to {constraints.0} characters",
+  "isInt": "{property} must be an integer",
+  "min": "{property} must not be less than {constraints.0}",
+  "max": "{property} must not be greater than {constraints.0}",
+  "isIn": "{property} must be one of the following values: {constraints.0}"
 }
