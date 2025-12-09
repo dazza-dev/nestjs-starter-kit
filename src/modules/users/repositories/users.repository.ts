@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Prisma } from '@/prisma/generated/client';
-import { prisma } from '@/prisma/prisma.client';
+import { PrismaService } from '@/prisma/prisma.service';
 import { prismaPaginate, PaginationResult } from '@/prisma/prisma.paginate';
 import type { User } from '@/modules/users/types/user.type';
 import { CreateUserDto } from '@/modules/users/dto/create-user.dto';
@@ -8,6 +8,8 @@ import { UpdateUserDto } from '@/modules/users/dto/update-user.dto';
 
 @Injectable()
 export class UsersRepository {
+  constructor(private readonly prisma: PrismaService) {}
+
   /**
    * Generates the query parameters for pagination, search, sort, and filter options.
    *
@@ -71,7 +73,7 @@ export class UsersRepository {
         orderBy?: Prisma.UserOrderByWithRelationInput;
       }
     >(
-      prisma.user,
+      this.prisma.user,
       { where, orderBy },
       { page, limit, route: options?.route ?? null },
     );
@@ -84,7 +86,7 @@ export class UsersRepository {
    * @returns A promise that resolves to the user with the specified ID, or null if not found.
    */
   async find(id: number): Promise<User | null> {
-    return prisma.user.findFirst({ where: { id, deletedAt: null } });
+    return this.prisma.user.findFirst({ where: { id, deletedAt: null } });
   }
 
   /**
@@ -94,7 +96,7 @@ export class UsersRepository {
    * @returns A promise that resolves to the user with the specified email, or null if not found.
    */
   async findByEmail(email: string): Promise<User | null> {
-    return prisma.user.findFirst({ where: { email, deletedAt: null } });
+    return this.prisma.user.findFirst({ where: { email, deletedAt: null } });
   }
 
   /**
@@ -104,7 +106,7 @@ export class UsersRepository {
    * @returns A promise that resolves to the created user.
    */
   async create(data: CreateUserDto): Promise<User> {
-    return prisma.user.create({ data });
+    return this.prisma.user.create({ data });
   }
 
   /**
@@ -115,7 +117,7 @@ export class UsersRepository {
    * @returns A promise that resolves to the updated user.
    */
   async update(id: number, data: UpdateUserDto): Promise<User> {
-    return prisma.user.update({ where: { id }, data });
+    return this.prisma.user.update({ where: { id }, data });
   }
 
   /**
@@ -125,7 +127,7 @@ export class UsersRepository {
    * @returns A promise that resolves to the soft deleted user.
    */
   async delete(id: number): Promise<User> {
-    return prisma.user.update({
+    return this.prisma.user.update({
       where: { id },
       data: { deletedAt: new Date() },
     });

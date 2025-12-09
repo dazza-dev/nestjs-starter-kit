@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Prisma } from '@/prisma/generated/client';
-import { prisma } from '@/prisma/prisma.client';
+import { PrismaService } from '@/prisma/prisma.service';
 import { prismaPaginate, PaginationResult } from '@/prisma/prisma.paginate';
 import type { Role } from '@/modules/acl/roles/types/role.type';
 import { CreateRoleDto } from '@/modules/acl/roles/dto/create-role.dto';
@@ -8,6 +8,8 @@ import { UpdateRoleDto } from '@/modules/acl/roles/dto/update-role.dto';
 
 @Injectable()
 export class RolesRepository {
+  constructor(private readonly prisma: PrismaService) {}
+
   /**
    * Get the query options for finding roles with pagination, search, sort, and filter options.
    *
@@ -70,7 +72,7 @@ export class RolesRepository {
         orderBy?: Prisma.RoleOrderByWithRelationInput;
       }
     >(
-      prisma.role,
+      this.prisma.role,
       { where, orderBy },
       { page, limit, route: options?.route ?? null },
     );
@@ -83,7 +85,7 @@ export class RolesRepository {
    * @returns A promise that resolves to the role with the given ID, or null if no role is found.
    */
   async find(id: number): Promise<Role | null> {
-    return await prisma.role.findFirst({ where: { id } });
+    return await this.prisma.role.findFirst({ where: { id } });
   }
 
   /**
@@ -93,7 +95,7 @@ export class RolesRepository {
    * @returns A promise that resolves to the created role.
    */
   async create(data: CreateRoleDto): Promise<Role> {
-    return await prisma.role.create({ data });
+    return await this.prisma.role.create({ data });
   }
 
   /**
@@ -104,7 +106,7 @@ export class RolesRepository {
    * @returns A promise that resolves to the updated role.
    */
   async update(id: number, data: UpdateRoleDto): Promise<Role> {
-    return await prisma.role.update({ where: { id }, data });
+    return await this.prisma.role.update({ where: { id }, data });
   }
 
   /**
@@ -114,6 +116,6 @@ export class RolesRepository {
    * @returns A promise that resolves to the deleted role.
    */
   async delete(id: number): Promise<Role> {
-    return await prisma.role.delete({ where: { id } });
+    return await this.prisma.role.delete({ where: { id } });
   }
 }

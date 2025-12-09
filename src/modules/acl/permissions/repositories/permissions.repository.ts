@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { prisma } from '@/prisma/prisma.client';
+import { PrismaService } from '@/prisma/prisma.service';
 import type {
   Permission,
   ModulePermissionsGroup,
@@ -7,6 +7,8 @@ import type {
 
 @Injectable()
 export class PermissionsRepository {
+  constructor(private readonly prisma: PrismaService) {}
+
   /**
    * Get permission by id.
    *
@@ -14,7 +16,7 @@ export class PermissionsRepository {
    * @returns Permission.
    */
   async find(id: number): Promise<Permission | null> {
-    return await prisma.permission.findFirst({ where: { id } });
+    return await this.prisma.permission.findFirst({ where: { id } });
   }
 
   /**
@@ -23,7 +25,7 @@ export class PermissionsRepository {
    * @returns All permissions.
    */
   async getAll(): Promise<Permission[]> {
-    return await prisma.permission.findMany();
+    return await this.prisma.permission.findMany();
   }
 
   /**
@@ -32,7 +34,7 @@ export class PermissionsRepository {
    * @returns Module permissions group.
    */
   async findGroupedByModule(): Promise<ModulePermissionsGroup[]> {
-    const modules = await prisma.module.findMany({
+    const modules = await this.prisma.module.findMany({
       select: {
         id: true,
         name: true,
