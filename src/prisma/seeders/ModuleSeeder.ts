@@ -1,6 +1,6 @@
-import { prisma } from '@/prisma/prisma.client';
+import { PrismaService } from '@/prisma/prisma.service';
 
-export default async function ModuleSeeder() {
+export default async function ModuleSeeder(prisma: PrismaService) {
   const modules = [
     { name: 'Users', slug: 'users', icon: null, order: 0 },
     { name: 'Roles', slug: 'roles', icon: null, order: 0 },

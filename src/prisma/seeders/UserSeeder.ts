@@ -1,7 +1,7 @@
-import { prisma } from '@/prisma/prisma.client';
+import { PrismaService } from '@/prisma/prisma.service';
 import bcrypt from 'bcrypt';
 
-export default async function UserSeeder() {
+export default async function UserSeeder(prisma: PrismaService) {
   const hashedPassword = await bcrypt.hash('password', 10);
 
   await prisma.user.createMany({
