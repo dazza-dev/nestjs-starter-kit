@@ -1,0 +1,7 @@
+{
+  "invalid_data": "Los datos proporcionados no son válidos",
+  "isNotEmpty": "{property} no debe estar vacío",
+  "isString": "{property} debe ser una cadena de texto",
+  "isEmail": "{property} debe ser un correo electrónico",
+  "minLength": "{property} debe tener al menos {constraints.0} caracteres"
+}

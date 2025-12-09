@@ -1,0 +1,7 @@
+{
+  "invalid_data": "The given data was invalid",
+  "isNotEmpty": "{property} should not be empty",
+  "isString": "{property} must be a string",
+  "isEmail": "{property} must be an email",
+  "minLength": "{property} must be longer than or equal to {constraints.0} characters"
+}

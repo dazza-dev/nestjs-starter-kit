@@ -2,6 +2,7 @@ import {
   I18nValidationPipe,
   I18nValidationExceptionFilter,
   I18nValidationException,
+  I18nContext,
 } from 'nestjs-i18n';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from '@/app.module';
@@ -48,9 +49,12 @@ async function bootstrap(): Promise<void> {
         exc: I18nValidationException,
         formattedErrors: object,
       ) => {
+        const i18n = I18nContext.current();
         return {
           statusCode: 422,
-          message: 'The given data was invalid',
+          message: i18n
+            ? i18n.t('validation.invalid_data')
+            : 'The given data was invalid',
           errors: formattedErrors,
         };
       },
