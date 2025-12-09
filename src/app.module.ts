@@ -32,6 +32,7 @@ import { AclModule } from '@/modules/acl/acl.module';
         },
         messageKey: 'message',
       },
+      forRoutes: ['*splat'],
     }),
     I18nModule.forRoot({
       fallbackLanguage: 'en',
