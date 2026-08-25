@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.env
+.env.*
+coverage
+.github
+.vscode
+*.md
+test
+.eslintrc*
+.prettierrc*

@@ -1,0 +1,67 @@
+[
+  {
+    "name": "app_name",
+    "type": "string",
+    "value": null
+  },
+  {
+    "name": "app_theme",
+    "type": "string",
+    "value": "EMERALD_THEME"
+  },
+  {
+    "name": "logo",
+    "type": "string",
+    "value": null
+  },
+  {
+    "name": "logo_dark",
+    "type": "string",
+    "value": null
+  },
+  {
+    "name": "language",
+    "type": "string",
+    "value": "en"
+  },
+  {
+    "name": "timezone",
+    "type": "string",
+    "value": "UTC"
+  },
+  {
+    "name": "local_currency",
+    "type": "string",
+    "value": "USD"
+  },
+  {
+    "name": "dateformat",
+    "type": "string",
+    "value": "d/m/Y"
+  },
+  {
+    "name": "js_dateformat",
+    "type": "string",
+    "value": "DD/MM/YYYY"
+  },
+  {
+    "name": "datetime_format",
+    "type": "string",
+    "value": "d/m/Y - g:i A"
+  },
+  {
+    "name": "js_datetime_format",
+    "type": "string",
+    "value": "DD/MM/YYYY - h:mm a"
+  },
+  {
+    "name": "email",
+    "type": "string",
+    "value": null
+  },
+  {
+    "name": "notification_email",
+    "type": "string",
+    "value": null
+  }
+]

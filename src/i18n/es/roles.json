@@ -1,0 +1,10 @@
+{
+  "created": "Rol creado correctamente.",
+  "updated": "Rol actualizado correctamente.",
+  "deleted": "Rol eliminado correctamente.",
+  "restored": "Rol restaurado correctamente.",
+  "not_found": "Rol no encontrado.",
+  "system_role": "No puedes eliminar un rol predefinido del sistema.",
+  "name_taken": "Ya existe un rol con ese nombre.",
+  "permissions_updated": "Permisos actualizados correctamente."
+}

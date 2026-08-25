@@ -1,0 +1,84 @@
+model Role {
+  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  uuid        String    @db.Char(36)
+  name        String    @unique @db.VarChar(255)
+  displayName String?   @map("display_name") @db.VarChar(255)
+  description String?   @db.VarChar(255)
+  createdAt   DateTime? @map("created_at")
+  updatedAt   DateTime? @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  users       RoleUser[]
+  permissions PermissionRole[]
+
+  @@index([uuid])
+  @@map("roles")
+}
+
+model RoleUser {
+  userId BigInt @map("user_id") @db.UnsignedBigInt
+  roleId BigInt @map("role_id") @db.UnsignedBigInt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@map("role_user")
+}
+
+model AppModule {
+  id        BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  uuid      String    @db.Char(36)
+  name      String    @unique @db.VarChar(60)
+  icon      String?   @db.VarChar(60)
+  order     Int       @default(0) @db.UnsignedInt
+  createdAt DateTime? @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  permissions Permission[]
+
+  @@index([uuid])
+  @@map("modules")
+}
+
+model Permission {
+  id        BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  uuid      String    @db.Char(36)
+  name      String    @unique @db.VarChar(191)
+  group     String    @db.VarChar(60)
+  order     Int       @default(0) @db.UnsignedInt
+  moduleId  BigInt?   @map("module_id") @db.UnsignedBigInt
+  createdAt DateTime? @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  module AppModule?       @relation(fields: [moduleId], references: [id])
+  roles  PermissionRole[]
+  users  PermissionUser[]
+
+  @@index([uuid])
+  @@index([group])
+  @@index([moduleId])
+  @@map("permissions")
+}
+
+model PermissionRole {
+  permissionId BigInt @map("permission_id") @db.UnsignedBigInt
+  roleId       BigInt @map("role_id") @db.UnsignedBigInt
+
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([permissionId, roleId])
+  @@map("permission_role")
+}
+
+model PermissionUser {
+  permissionId BigInt @map("permission_id") @db.UnsignedBigInt
+  userId       BigInt @map("user_id") @db.UnsignedBigInt
+
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, permissionId])
+  @@map("permission_user")
+}

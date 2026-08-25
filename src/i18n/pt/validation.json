@@ -1,0 +1,55 @@
+{
+  "invalid_data": "Os dados enviados não são válidos.",
+  "too_many_requests": "Muitas solicitações. Tente novamente em instantes.",
+  "username": {
+    "required": "Você deve informar o usuário.",
+    "string": "O usuário não é válido."
+  },
+  "password": {
+    "required": "Você deve informar a senha.",
+    "string": "A senha não é válida.",
+    "min": "A senha deve ter pelo menos 8 caracteres."
+  },
+  "email": {
+    "required": "Você deve informar o e-mail.",
+    "string": "O e-mail não é válido.",
+    "email": "Informe um e-mail válido."
+  },
+  "token": {
+    "required": "Você deve informar o token.",
+    "string": "O token não é válido."
+  },
+  "name": {
+    "required": "Você deve informar o nome.",
+    "string": "O nome não é válido."
+  },
+  "first_name": {
+    "required": "Você deve informar o nome.",
+    "string": "O nome não é válido."
+  },
+  "last_name": {
+    "string": "O sobrenome não é válido."
+  },
+  "display_name": {
+    "required": "O nome da função é obrigatório."
+  },
+  "description": {
+    "string": "A descrição não é válida."
+  },
+  "phone": {
+    "string": "O telefone não é válido."
+  },
+  "status": {
+    "in": "O status não é válido."
+  },
+  "role_uuids": {
+    "required": "A função é obrigatória.",
+    "exists": "A função selecionada não existe."
+  },
+  "permissions": {
+    "array": "As permissões não são válidas."
+  },
+  "sort_by": {
+    "order": "A ordenação não é válida."
+  }
+}

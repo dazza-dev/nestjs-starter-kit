@@ -1,0 +1,55 @@
+{
+  "invalid_data": "Los datos enviados no son válidos.",
+  "too_many_requests": "Demasiadas solicitudes. Inténtalo de nuevo en un momento.",
+  "username": {
+    "required": "Debes ingresar el usuario.",
+    "string": "El usuario no es válido."
+  },
+  "password": {
+    "required": "Debes ingresar la contraseña.",
+    "string": "La contraseña no es válida.",
+    "min": "La contraseña debe tener al menos 8 caracteres."
+  },
+  "email": {
+    "required": "Debes ingresar el correo.",
+    "string": "El correo no es válido.",
+    "email": "Debes ingresar un correo válido."
+  },
+  "token": {
+    "required": "Debes proporcionar el token.",
+    "string": "El token no es válido."
+  },
+  "name": {
+    "required": "Debes ingresar el nombre.",
+    "string": "El nombre no es válido."
+  },
+  "first_name": {
+    "required": "Debes ingresar el nombre.",
+    "string": "El nombre no es válido."
+  },
+  "last_name": {
+    "string": "El apellido no es válido."
+  },
+  "display_name": {
+    "required": "El nombre del rol es obligatorio."
+  },
+  "description": {
+    "string": "La descripción no es válida."
+  },
+  "phone": {
+    "string": "El teléfono no es válido."
+  },
+  "status": {
+    "in": "El estado no es válido."
+  },
+  "role_uuids": {
+    "required": "El rol es obligatorio.",
+    "exists": "El rol seleccionado no existe."
+  },
+  "permissions": {
+    "array": "Los permisos no son válidos."
+  },
+  "sort_by": {
+    "order": "El orden no es válido."
+  }
+}

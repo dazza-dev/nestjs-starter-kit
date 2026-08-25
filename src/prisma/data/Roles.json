@@ -1,0 +1,12 @@
+[
+  {
+    "name": "admin",
+    "display_name": "Administrator",
+    "description": "Full access to the system"
+  },
+  {
+    "name": "user",
+    "display_name": "User",
+    "description": "Basic access to the system"
+  }
+]

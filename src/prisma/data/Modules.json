@@ -1,0 +1,4 @@
+[
+  { "name": "app", "icon": "layout-grid", "order": 1 },
+  { "name": "configs", "icon": "settings", "order": 2 }
+]

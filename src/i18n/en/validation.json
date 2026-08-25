@@ -1,0 +1,55 @@
+{
+  "invalid_data": "The submitted data is not valid.",
+  "too_many_requests": "Too many requests. Please try again in a moment.",
+  "username": {
+    "required": "The username is required.",
+    "string": "The username is not valid."
+  },
+  "password": {
+    "required": "The password is required.",
+    "string": "The password is not valid.",
+    "min": "The password must be at least 8 characters."
+  },
+  "email": {
+    "required": "The email is required.",
+    "string": "The email is not valid.",
+    "email": "Enter a valid email address."
+  },
+  "token": {
+    "required": "The token is required.",
+    "string": "The token is not valid."
+  },
+  "name": {
+    "required": "The name is required.",
+    "string": "The name is not valid."
+  },
+  "first_name": {
+    "required": "The first name is required.",
+    "string": "The first name is not valid."
+  },
+  "last_name": {
+    "string": "The last name is not valid."
+  },
+  "display_name": {
+    "required": "The role name is required."
+  },
+  "description": {
+    "string": "The description is not valid."
+  },
+  "phone": {
+    "string": "The phone is not valid."
+  },
+  "status": {
+    "in": "The status is not valid."
+  },
+  "role_uuids": {
+    "required": "The role is required.",
+    "exists": "The selected role does not exist."
+  },
+  "permissions": {
+    "array": "The permissions are not valid."
+  },
+  "sort_by": {
+    "order": "The sort order is not valid."
+  }
+}

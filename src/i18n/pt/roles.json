@@ -1,0 +1,10 @@
+{
+  "created": "Função criada com sucesso.",
+  "updated": "Função atualizada com sucesso.",
+  "deleted": "Função excluída com sucesso.",
+  "restored": "Função restaurada com sucesso.",
+  "not_found": "Função não encontrada.",
+  "system_role": "Você não pode excluir uma função predefinida do sistema.",
+  "name_taken": "Já existe uma função com esse nome.",
+  "permissions_updated": "Permissões atualizadas com sucesso."
+}

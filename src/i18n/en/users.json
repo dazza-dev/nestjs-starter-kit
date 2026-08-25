@@ -1,0 +1,10 @@
+{
+  "created": "User created successfully.",
+  "updated": "User updated successfully.",
+  "deleted": "User deleted successfully.",
+  "restored": "User restored successfully.",
+  "not_found": "User not found.",
+  "self_action": "You cannot perform this action on your own account.",
+  "email_taken": "A user with this email already exists.",
+  "username_taken": "A user with this username already exists."
+}

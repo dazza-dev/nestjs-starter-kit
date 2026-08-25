@@ -1,0 +1,10 @@
+{
+  "created": "Usuário criado com sucesso.",
+  "updated": "Usuário atualizado com sucesso.",
+  "deleted": "Usuário excluído com sucesso.",
+  "restored": "Usuário restaurado com sucesso.",
+  "not_found": "Usuário não encontrado.",
+  "self_action": "Você não pode executar esta ação na sua própria conta.",
+  "email_taken": "Já existe um usuário com esse e-mail.",
+  "username_taken": "Já existe um usuário com esse nome de usuário."
+}

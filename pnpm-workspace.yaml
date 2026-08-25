@@ -1,0 +1,11 @@
+allowBuilds:
+  '@nestjs/core': true
+  '@prisma/engines': true
+  bcrypt: true
+  esbuild: true
+  msgpackr-extract: false
+  prisma: true
+  unrs-resolver: true
+# Our own package: the wait guards against newly published third-party versions, not ours.
+minimumReleaseAgeExclude:
+  - nestjs-sentinel

@@ -1,0 +1,49 @@
+[
+  { "name": "read-profile", "module": null, "group": "profile", "order": 1 },
+  { "name": "update-profile", "module": null, "group": "profile", "order": 2 },
+
+  {
+    "name": "read-dashboard",
+    "module": "app",
+    "group": "dashboard",
+    "order": 1
+  },
+
+  { "name": "create-users", "module": "app", "group": "users", "order": 1 },
+  { "name": "read-users", "module": "app", "group": "users", "order": 2 },
+  { "name": "update-users", "module": "app", "group": "users", "order": 3 },
+  { "name": "delete-users", "module": "app", "group": "users", "order": 4 },
+
+  { "name": "create-roles", "module": "configs", "group": "roles", "order": 1 },
+  { "name": "read-roles", "module": "configs", "group": "roles", "order": 2 },
+  { "name": "update-roles", "module": "configs", "group": "roles", "order": 3 },
+  { "name": "delete-roles", "module": "configs", "group": "roles", "order": 4 },
+
+  {
+    "name": "create-groups",
+    "module": "configs",
+    "group": "groups",
+    "order": 1
+  },
+  { "name": "read-groups", "module": "configs", "group": "groups", "order": 2 },
+  {
+    "name": "update-groups",
+    "module": "configs",
+    "group": "groups",
+    "order": 3
+  },
+  {
+    "name": "delete-groups",
+    "module": "configs",
+    "group": "groups",
+    "order": 4
+  },
+
+  { "name": "read-config", "module": "configs", "group": "config", "order": 5 },
+  {
+    "name": "update-config",
+    "module": "configs",
+    "group": "config",
+    "order": 6
+  }
+]

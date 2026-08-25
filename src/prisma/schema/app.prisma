@@ -1,0 +1,35 @@
+model Group {
+  id        BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  uuid      String    @db.Char(36)
+  name      String    @db.VarChar(255)
+  createdAt DateTime? @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@index([uuid])
+  @@map("groups")
+}
+
+model Setting {
+  id        BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name      String    @unique @db.VarChar(60)
+  type      String    @default("string")
+  value     String?   @db.LongText
+  createdAt DateTime? @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  @@map("settings")
+}
+
+model Log {
+  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  subject     String    @db.VarChar(255)
+  userId      BigInt    @map("user_id") @db.UnsignedBigInt
+  logableId   BigInt    @map("logable_id") @db.UnsignedBigInt
+  logableType String    @map("logable_type") @db.VarChar(255)
+  createdAt   DateTime? @map("created_at")
+  updatedAt   DateTime? @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  @@map("logs")
+}

@@ -1,0 +1,10 @@
+{
+  "created": "Role created successfully.",
+  "updated": "Role updated successfully.",
+  "deleted": "Role deleted successfully.",
+  "restored": "Role restored successfully.",
+  "not_found": "Role not found.",
+  "system_role": "You cannot delete a system role.",
+  "name_taken": "A role with this name already exists.",
+  "permissions_updated": "Permissions updated successfully."
+}
